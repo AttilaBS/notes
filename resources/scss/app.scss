@@ -6,13 +6,15 @@ body {
 
 .logo-home
  {
-    img {
-        width: 80px;
-    }
+    width: 180px;
  }
 
  .flex-center {
     justify-content: center;
+ }
+
+ .flex-align-center {
+    align-items: center;
  }
 
  .flex-start {
@@ -39,4 +41,34 @@ body {
 
  .mt-40 {
     margin-top: 40px;
+ }
+
+ .login-box {
+    width: 140px;
+    border: 3px solid rgb(0, 45, 128);
+    border-radius: 5px;
+    background-color:rgb(139, 176, 245);
+    padding: 5px;
+    margin: 5px;
+    a {
+        color: #fff;
+    }
+ }
+
+ .background {
+    background-color: antiquewhite;
+    padding: 20px;
+ }
+
+ .app-logo {
+    width: 80px;
+    svg {
+        width: 40px;
+    }
+ }
+
+ @media (min-width: 340px) {
+    .sm\:block {
+        display: block;
+    }
  }
