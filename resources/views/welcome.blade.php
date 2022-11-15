@@ -17,7 +17,7 @@
             @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 sm:block login-box">
                     @auth
-                        <a href="{{ route('notes.index') }}" class="text-bg text-gray-700 dark:text-gray-500 underline">Dashboard</a>
+                        <a href="{{ route('notes.index') }}" class="text-bg text-gray-700 dark:text-gray-500 underline">Notas</a>
                     @else
                         <a href="{{ route('login') }}" class="text-bg text-gray-700 dark:text-gray-500 underline">Log in</a>
 

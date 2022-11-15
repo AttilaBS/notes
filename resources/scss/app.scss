@@ -67,8 +67,20 @@ body {
     }
  }
 
- @media (min-width: 340px) {
-    .sm\:block {
+ @media (min-width: 360px) {
+    .login-box {
         display: block;
     }
- }
+    .not-hidden .dropdown-menu {
+        display: block;
+     }
+     .hamburger {
+        display: none;
+     }
+}
+
+@media (max-width: 359px) {
+    .not-hidden .dropdown-menu {
+        display: none;
+     }
+}
