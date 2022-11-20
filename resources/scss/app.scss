@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
     font-family: 'Nunito', sans-serif;
 }
@@ -73,10 +77,13 @@ body {
     }
     .not-hidden .dropdown-menu {
         display: block;
-     }
-     .hamburger {
+    }
+    .hamburger {
         display: none;
-     }
+    }
+    .modal-notes .sm\:w-full {
+        width: 90%;
+    }
 }
 
 @media (max-width: 359px) {

@@ -32,7 +32,7 @@ Route::middleware(
         Route::get('/', ShowNotes::class)->name('index');
         Route::get('/note/{id}', ShowNote::class)->name('show');
 
-        Route::get('/create', CreateNoteController::class)->name('create');
+        Route::post('/create', CreateNoteController::class)->name('create');
         Route::get('/edit', EditNoteController::class)->name('edit');
         Route::post('/store', StoreNoteController::class)->name('store');
         Route::post('/delete', DeleteNoteController::class)->name('delete');

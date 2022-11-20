@@ -11,6 +11,16 @@ class Note extends Model
     use HasFactory;
 
     /**
+     * The attributes that are mass assignable.
+     *
+     * @var string[]
+     */
+    protected $fillable = [
+        'title',
+        'content',
+    ];
+
+    /**
      * Create a new NoteFactory instance for the model.
      *
      * @return NoteFactory
