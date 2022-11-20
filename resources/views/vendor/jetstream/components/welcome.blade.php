@@ -4,7 +4,6 @@
     </div>
 
     <div class="mt-8 text-2xl">
-    {{-- injetar aqui --}}
         Índice das Notas
     </div>
 </div>

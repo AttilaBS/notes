@@ -1,48 +1,49 @@
-<div>
-    <div class="row mb-4">
-        <div class="col-md-12">
-          <div class="float-right mt-5">
-              <input wire:model="search" class="form-control" type="text" placeholder="Procurar Nota...">
-          </div>
-        </div>
-    </div>
-    <div class="row">
-       <table class="table">
-           <thead>
-               <tr>
-                  <th>Id</th>
-                  <th>Usuário Id</th>
-                  <th>Título</th>
-                  <th>Nota</th>
-                  <th>Criada em</th>
-                  <th>Atualizada em</th>
-                  <th>Editar</th>
-                  <th>Remover</th>
-               </tr>
-           </thead>
-           <tbody>
-               @foreach($notes as $note)
-                    <td>{{ $note->id }}</td>
-                    <td>{{ $note->user_id }}</td>
-                    <td>{{ $note->title }}</td>
-                    <td>{{ $note->content }}</td>
-                    <td>{{ $note->created_at }}</td>
-                    <td>{{ $note->updated_at }}</td>
-                    <td>
-                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                            Editar
-                        </button>
-                    </td>
-                    <td>
-                        <button class="bg-red-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                            Remover
-                        </button>
-                    </td>
-                @endforeach
-           </tbody>
-       </table>
-   </div>
+<x-slot name="header">
+    <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        Posts
+    </h2>
+</x-slot>
 
-
-
+<div class="px-6 pt-4 pb-2">
+    <a href="{{ route('notes.create') }}" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">
+        Criar Nota
+    </a>
 </div>
+
+<div class="py-12">
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg px-4 py-4">
+        @if (session()->has('message'))
+            <div class="bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md my-3" role="alert">
+                <div class="flex">
+                    <div>
+                        <p class="text-sm">{{ session('message') }}</p>
+                    </div>
+                </div>
+            </div>
+        @endif
+        <div class="grid grid-flow-row grid-cols-3  gap-4">
+        @foreach ($notes as $note)
+            <div class="max-w-sm rounded overflow-hidden shadow-lg">
+                <div class="px-6 py-4">
+                    <div class="font-bold text-xl mb-2">{{ $note->title }}</div>
+                </div>
+                <div class="px-6 py-4">
+                    <div class="font-bold text-xl mb-2">{{ $note->content }}</div>
+                    <p class="text-gray-700 text-base">
+                        {{ Str::words($note->content, 20, '...') }}
+                    </p>
+                </div>
+                <div class="px-6 pt-4 pb-2">
+                    <a href="{{ route('notes.show', $note->id) }}" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">
+                        Exibir Nota
+                    </a>
+                </div>
+            </div>
+        @endforeach
+    </div>
+</div>
+{{-- <div class="py-4">
+</div>
+</div>
+</div> --}}
