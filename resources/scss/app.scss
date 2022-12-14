@@ -71,6 +71,39 @@ body {
     }
  }
 
+ .height-title {
+    height: 80px;
+ }
+
+ .height-content {
+    height: 315px;
+}
+
+.note-card {
+    background-color: antiquewhite;
+    margin-bottom: 2rem;
+}
+
+.note-show {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+ @media (min-width: 1023px) {
+    .height-content {
+        height: 300px;
+    }
+ }
+
+ @media (max-width: 600px) {
+    .mobile-adjust {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+ }
+
  @media (min-width: 360px) {
     .login-box {
         display: block;

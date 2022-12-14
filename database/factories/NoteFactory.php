@@ -31,7 +31,7 @@ class NoteFactory extends Factory
             ),
             'is_public' => $this->faker->numberBetween(1, 0),
             'title' => $this->faker->word(),
-            'content' => $this->faker->sentence($this->faker->numberBetween(4, 10)),
+            'content' => $this->faker->text(),
             'created_at' => Carbon::now()->format('Y-m-d H:m:i'),
             'updated_at' => Carbon::now()->format('Y-m-d H:m:i'),
         ];
