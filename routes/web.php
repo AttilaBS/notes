@@ -35,5 +35,5 @@ Route::middleware(
         Route::get('/create', CreateNoteController::class)->name('create');
         Route::get('/edit', EditNoteController::class)->name('edit');
         Route::post('/store', StoreNoteController::class)->name('store');
-        Route::post('/delete', DeleteNoteController::class)->name('delete');
+        Route::post('/delete/{id}', DeleteNoteController::class)->name('delete');
     });

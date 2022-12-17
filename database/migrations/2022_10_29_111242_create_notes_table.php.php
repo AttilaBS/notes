@@ -14,7 +14,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('notes', function (Blueprint $table) {
-            $table->string('id')->primary();
+            $table->string('id')->autoIncrement();
             $table->foreignId('user_id')->index();
             $table->boolean('is_public')->default(0);
             $table->string('title');

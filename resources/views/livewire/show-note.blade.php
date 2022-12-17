@@ -24,6 +24,9 @@
                 <div class="text-lg mb-2">{{ $note->content }}</div>
             </div>
             <div class="px-6 pt-4 pb-8">
+                <a href="{{ route('notes.index') }}" class="inline-flex items-center px-4 py-2 bg-orange-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-orange-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">
+                    Voltar
+                </a>
                 <a href="{{ route('notes.edit', $note->id) }}" class="inline-flex items-center px-4 py-2 bg-cyan-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-cyan-900 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">
                     Editar Nota
                 </a>
