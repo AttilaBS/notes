@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Note;
 use App\Http\Requests\EditNoteRequest;
-use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class EditNoteController extends Controller
@@ -15,8 +15,8 @@ class EditNoteController extends Controller
      *
      * @return View
      */
-    public function __invoke(EditNoteRequest $request): View
+    public function __invoke(Note $note): View
     {
-        return view('notes.edit');
+        return view('notes.edit', compact('note'));
     }
 }

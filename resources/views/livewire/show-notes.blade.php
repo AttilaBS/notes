@@ -32,7 +32,7 @@
                     <div class="text-lg mb-2">{{ Str::words($note->content, 20, '...') }}</div>
                 </div>
                 <div class="px-6 pt-4 pb-8">
-                    <a href="{{ route('notes.show', $note->id) }}" class="inline-flex items-center px-4 py-2 bg-cyan-700 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-cyan-900 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">
+                    <a href="{{ route('notes.show', [$note->id]) }}" class="inline-flex items-center px-4 py-2 bg-cyan-700 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-cyan-900 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">
                         Exibir Nota
                     </a>
                 </div>
