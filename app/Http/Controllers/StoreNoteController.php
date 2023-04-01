@@ -2,38 +2,30 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Note;
 use App\Http\Requests\StoreNoteRequest;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Http\Request;
+use App\Models\Note;
+use App\Services\CreateNoteService;
+use App\Services\UpdateNoteService;
 
 class StoreNoteController extends Controller
 {
     /**
      * Handle the incoming request.
      *
-     * @param Note $note
      * @param StoreNoteRequest $request
+     * @param ?Note $note
      *
-     * @return Model
      */
     public function __invoke(
-        Note $note,
-        StoreNoteRequest $request
-    ): Model {
-        $request = $request->validated();
-        info($note);
-        dd($request);
-        // when edit view is complete:
-        // Note::where('id', $request->id);
-        if ($note->id) {
-
+        StoreNoteRequest $request,
+        ?Note $note
+    ) {
+        $request = $request->only(['id', 'title', 'content']);
+        if (! $note?->id) {
+            app()->make(CreateNoteService::class)($request);
+        } else {
+            app()->make(UpdateNoteService::class)($request, $note);
         }
-        return $note->updateOrCreate(
-            [
-                'title' => $request->title,
-                'content' => $request->content,
-            ]
-        );
+        return redirect(route('notes.index'));
     }
 }

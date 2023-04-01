@@ -16,8 +16,11 @@ class Note extends Model
      * @var string[]
      */
     protected $fillable = [
+        'user_id',
         'title',
         'content',
+        'created_at',
+        'updated_at',
     ];
 
     /**
