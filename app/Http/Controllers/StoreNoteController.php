@@ -20,12 +20,12 @@ class StoreNoteController extends Controller
         StoreNoteRequest $request,
         ?Note $note
     ) {
-        $request = $request->only(['id', 'title', 'content']);
+        $request = $request->validated();
         if (! $note?->id) {
             app()->make(CreateNoteService::class)($request);
         } else {
             app()->make(UpdateNoteService::class)($request, $note);
         }
-        return redirect(route('notes.index'));
+        return redirect(route('notes.index'))->with('message', 'Nota criada com sucesso');
     }
 }

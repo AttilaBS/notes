@@ -1,18 +1,9 @@
 @extends('layouts.app')
 
 <div class="fixed z-10 inset-0 overflow-y-auto ease-out duration-400 modal-notes">
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
     <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:p-0">
         <div class="fixed inset-0 transition-opacity">
-            <div class="absolute inset-0 bg-gray-500 opacity-50"></div>
+            <div class="absolute inset-0 bg-lime-700 opacity-50"></div>
         </div>​
         <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
             <form action="{{ route('notes.store', $note->id) }}" method="post">
@@ -26,6 +17,9 @@
                         <div class="mb-4">
                         <label for="title" class="block text-gray-700 text-sm font-bold mb-2">Título:</label>
                         <input type="text" id="title" name="title" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" value="{{ $note->title }}">
+                        @error('title')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="mb-4">
                         <label for="content" class="block text-gray-700 text-sm font-bold mb-2">
@@ -34,6 +28,18 @@
                         <textarea id="content" name="content" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                             {{ $note->content }}
                         </textarea>
+                        @error('content')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="mb-4">
+                        <label for="content" class="block text-gray-700 text-sm font-bold mb-2">
+                           Upload de Imagem
+                        </label>
+                        <input type="file" name="image" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                        @error('image')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                 </div>
                 <div class="px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">

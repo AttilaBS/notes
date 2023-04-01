@@ -27,6 +27,7 @@ class StoreNoteRequest extends FormRequest
             'id' => 'sometimes|numeric',
             'title' => 'required|string|min:3|max:50',
             'content' => 'required|string|min:6',
+            'image' => 'nullable|image|mimes:png,jpg,jpeg|max:4096',
         ];
     }
 }

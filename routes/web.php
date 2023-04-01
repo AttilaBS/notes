@@ -31,7 +31,6 @@ Route::middleware(
     )->name('notes.')->prefix('notes')->group( function () {
         Route::get('/', ShowNotes::class)->name('index');
         Route::get('/note/{id}', ShowNote::class)->name('show');
-
         Route::get('/create', CreateNoteController::class)->name('create');
         Route::get('/edit/{note}', EditNoteController::class)->name('edit');
         Route::post('/store/{note?}', StoreNoteController::class)->name('store');

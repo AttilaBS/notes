@@ -90,6 +90,11 @@ body {
     align-items: center;
 }
 
+.alert-danger {
+    color: red;
+    font-weight: bold;
+}
+
  @media (min-width: 1023px) {
     .height-content {
         height: 300px;
