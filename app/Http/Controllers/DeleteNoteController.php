@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\DeleteNoteRequest;
-use Illuminate\Http\Request;
+use App\Models\Note;
+use Illuminate\Http\RedirectResponse;
 
 class DeleteNoteController extends Controller
 {
@@ -11,12 +12,19 @@ class DeleteNoteController extends Controller
      * Handle the incoming request.
      *
      * @param DeleteNoteRequest $request
+     * @param Note $note
      *
-     * @return
+     * @return RedirectResponse
      */
-    public function __invoke(DeleteNoteRequest $request)
-    {
+    public function __invoke(
+        DeleteNoteRequest $request,
+        Note $note
+    ): RedirectResponse {
+        Note::destroy($note->id);
 
-        return;
+        return redirect(
+                route('notes.index')
+            )->with('message', 'Nota deletada com sucesso'
+        );
     }
 }

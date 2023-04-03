@@ -22,9 +22,9 @@
                 </div>
             </div>
         @endif
-        <div class="grid grid-flow-row xs:grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mobile-adjust">
+        <div class="grid grid-flow-row xs:grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 mobile-adjust">
         @foreach ($notes as $note)
-            <div class="max-w-sm rounded overflow-hidden shadow-lg note-card">
+            <div class="max-w-sm rounded-md overflow-hidden shadow-lg note-card">
                 <div class="px-6 py-4 height-title">
                     <div class="font-bold text-xl mb-2">{{ $note->title }}</div>
                 </div>

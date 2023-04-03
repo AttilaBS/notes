@@ -16,6 +16,9 @@ class ShowNotes extends Component
      */
     public function render(): View
     {
-        return view('livewire.show-notes', ['notes' => Note::orderBy('id', 'desc')->paginate()]);
+        return view(
+            'livewire.show-notes',
+            ['notes' => Note::orderBy('id', 'desc')->paginate()]
+        );
     }
 }

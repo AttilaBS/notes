@@ -14,7 +14,7 @@
                 <!-- Navigation Links -->
                 <div class="space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('notes.index') }}" :active="request()->routeIs('notes.index')">
-                        {{ __('Bem-vindo') }}
+                        {{ __('Voltar para a Home') }}
                     </x-jet-nav-link>
                 </div>
             </div>
