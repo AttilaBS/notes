@@ -56,6 +56,11 @@ return [
             'throw' => false,
         ],
 
+        'backups' => [
+            'driver' => 'local',
+            'root' => base_path('backups'),
+            'throw' => false,
+        ],
     ],
 
     /*
