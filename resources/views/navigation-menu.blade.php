@@ -6,16 +6,21 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('notes.index') }}">
                         <x-jet-application-mark />
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
                 <div class="space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('notes.index') }}" :active="request()->routeIs('notes.index')">
+                @if (request()->routeIs('notes.index'))
+                    <x-jet-nav-link :active=true>
+                        {{ __('Home') }}
+                    </x-jet-nav-link>
+                @else
+                    <x-jet-nav-link href="{{ route('notes.index') }}">
                         {{ __('Voltar para a Home') }}
                     </x-jet-nav-link>
+                @endif
                 </div>
             </div>
 
