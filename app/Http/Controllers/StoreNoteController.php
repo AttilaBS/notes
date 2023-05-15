@@ -24,14 +24,13 @@ class StoreNoteController extends Controller
         ?Note $note
     ): RedirectResponse {
         $request = $request->validated();
+        $flag = $note?->id ? 'editada' : 'criada';
         if (! $note?->id) {
             app()->make(CreateNoteService::class)($request);
         } else {
             app()->make(UpdateNoteService::class)($request, $note);
         }
-        return redirect(
-                route('notes.index')
-            )->with('message', 'Nota criada com sucesso'
-        );
+        return redirect(route('notes.index'))
+            ->with('message', "Nota {$flag} com sucesso");
     }
 }
